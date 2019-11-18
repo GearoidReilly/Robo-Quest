@@ -23,4 +23,16 @@ export class ReadRobotComponent implements OnInit {
     })
   }
 
+  //Delete a robot from the database
+  DeleteRobot(id: string){
+    //Use the service to delete the robot from the database
+    this.roboRoute.DeleteRobot(id).subscribe(
+      //Adds asynchronous functionality
+      () =>{
+        //Add functionality to refresh the page automatically
+        this.ngOnInit();
+      }
+    )
+  }
+
 }

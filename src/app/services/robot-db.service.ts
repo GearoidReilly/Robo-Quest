@@ -25,4 +25,10 @@ export class RobotDBService {
     //Send the robot data to the server
     return this.http.post("http://localhost:3000/robots",newRobot);
   }
+
+  //Remove a robot from the database
+  DeleteRobot(id:string):Observable<any>{
+    //Return a server request while adding the id to the server request
+    return this.http.delete("http://localhost:3000/robots/" + id);
+  }
 }

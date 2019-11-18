@@ -72,5 +72,18 @@ app.post('/robots', (req, res) =>{
     res.json("Data Uploaded");
 })
 
+//Remove a robot from the database
+app.delete('/robots/:id', (req,res) =>{
+    //Delete the movie from the database
+    RobotModel.deleteOne({_id:req.params.id},(error,data) => {
+        //Check for error
+        if(error){
+            //Show the error
+            res.json(error);
+        }
+        res.json(data);
+    })
+})
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
