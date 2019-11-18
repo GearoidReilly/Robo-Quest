@@ -1,1 +1,38 @@
-<p>create-robot works!</p>
+<mat-card>
+    <form (submit)="AddRobot(robotForm)" #robotForm="ngForm" method="POST">
+    <mat-form-field>
+        <label> Robot Name</label>
+        <input
+        matInput
+        type="text"
+        name="name"
+        ngModel
+        required
+        #title="ngModel">
+    </mat-form-field>
+    <mat-form-field>
+        <label>Robot Job</label>
+        <input
+        matInput
+        type="text"
+        name="job"
+        ngModel
+        required
+        #title="ngModel">
+    </mat-form-field>
+    <mat-form-field>
+        <label>Robot Team</label>
+        <input
+        matInput
+        type="text"
+        name="team"
+        ngModel
+        required
+        #title="ngModel">
+    </mat-form-field>
+    <button
+    mat-raised-button
+    color="accent"
+    type="submit">Save Movie</button>
+    </form>
+</mat-card>

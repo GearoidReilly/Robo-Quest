@@ -1,1 +1,17 @@
-<p>read-robot works!</p>
+<mat-accordion *ngFor="let robot of robots">
+    <mat-expansion-panel [expanded]="true" >
+    <mat-expansion-panel-header>
+    <mat-panel-title>
+    <h3> {{ robot.name }} </h3>
+    </mat-panel-title>
+    <mat-panel-description>
+    <h3>{{ robot.job }}</h3>
+    <h3>{{ robot.team }}</h3>
+    </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-action-row>
+    <!--<button mat-button color="primary" [routerLink]="['/edit', movie._id]" >EDIT</button>-->
+    <!--<button mat-button (click)="onDelete(movie._id)" color="warn">DELETE</button>-->
+    </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
