@@ -17,12 +17,14 @@ import {
   MatToolbarModule,
   MatExpansionModule
   } from '@angular/material';
+import { EditRobotComponent } from './edit-robot/edit-robot.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateRobotComponent,
-    ReadRobotComponent
+    ReadRobotComponent,
+    EditRobotComponent
   ],
   imports: [
     BrowserModule,

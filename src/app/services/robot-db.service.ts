@@ -17,6 +17,12 @@ export class RobotDBService {
     return this.http.get("http://localhost:3000/robots");
   }
 
+  //Find one robot with an id
+  GetRobotById(id:string):Observable<any>{
+    //Return a robot foundd by ID
+    return this.http.get("http://localhost:3000/robots/" + id);
+  }
+
   //Add Robot to the database
   AddRobot(name:string, job:string, team:string):Observable<any>{
     //Create robot model to import to the database
@@ -30,5 +36,14 @@ export class RobotDBService {
   DeleteRobot(id:string):Observable<any>{
     //Return a server request while adding the id to the server request
     return this.http.delete("http://localhost:3000/robots/" + id);
+  }
+
+  //Edit the data of a robot on the database
+  EditRobot(id:string, name:string, job:string, team:string):Observable<any>{
+    //Create a robot constant using the added values
+    const robot: Robot = { name: name, job: job, team: team };
+
+    //Update the robot on the database
+    return this.http.put("http://localhost:3000/robots/" + id, robot);
   }
 }
