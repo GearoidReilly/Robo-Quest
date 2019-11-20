@@ -15,16 +15,19 @@ import {
   MatCardModule,
   MatButtonModule,
   MatToolbarModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatSelectModule
   } from '@angular/material';
 import { EditRobotComponent } from './edit-robot/edit-robot.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateRobotComponent,
     ReadRobotComponent,
-    EditRobotComponent
+    EditRobotComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { EditRobotComponent } from './edit-robot/edit-robot.component';
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
+    MatSelectModule,
     FormsModule
   ],
   providers: [],
