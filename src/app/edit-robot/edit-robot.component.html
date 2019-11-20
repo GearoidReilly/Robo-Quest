@@ -12,23 +12,19 @@
     </mat-form-field>
     <mat-form-field>
         <label>Robot Job</label>
-        <input
-        matInput
-        type="text"
-        name="job"
-        ngModel = {{robot.job}}
-        required
-        #title="ngModel">
+        <mat-select [(ngModel)] = "selectedJob" name = "job" required>
+            <mat-option *ngFor = "let job of jobs" [value] = "job">
+            {{job}}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
     <mat-form-field>
         <label>Robot Team</label>
-        <input
-        matInput
-        type="text"
-        name="team"
-        ngModel = {{robot.team}}
-        required
-        #title="ngModel">
+        <mat-select [(ngModel)] = "selectedTeam" name = "team" required>
+            <mat-option *ngFor = "let team of teams" [value] = "team">
+            {{team}}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
     <button
     mat-raised-button

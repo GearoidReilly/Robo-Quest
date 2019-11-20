@@ -12,6 +12,37 @@ export class EditRobotComponent implements OnInit {
 
   robot:any = [];   //Robot to edit
 
+  selectedJob: string;      //Get selected Job value
+  selectedTeam: string;     //Get selected Team value
+
+  //Array of available jobs
+  jobs: string[] = [
+    "Warrior",
+    "Rogue",
+    "Cleric",
+    "Mage",
+    "Monk",
+    "Paladin",
+    "Bard",
+    "Berserker"
+  ];
+
+  //Array of available teams
+  teams: string[] = [
+    "Aries",
+    "Taurus",
+    "Gemini",
+    "Cancer",
+    "Leo",
+    "Virgo",
+    "Libra",
+    "Scorpio",
+    "Sagittarius",
+    "Capricorn",
+    "Aquarius",
+    "Pisces"
+  ]
+
   //Add router, activated route and robot db services to the constructor
   constructor(private router: Router, private route: ActivatedRoute, private roboRoute: RobotDBService) { }
 
@@ -21,14 +52,17 @@ export class EditRobotComponent implements OnInit {
     {
       //Get the data from the robot
       this.robot = data;
-      console.log(this.robot._id);
+      
+      //Set the values of the select form inputs based on the job and team values of the robot
+      this.selectedJob = this.robot.job;
+      this.selectedTeam = this.robot.team;
     })
   }
 
   //Take the form data and use it to update the robot in the database
   EditRobot(form: NgForm){
     //Add each form value to the service
-    this.roboRoute.EditRobot(this.robot._id, form.value.name, form.value.job, form.value.team).subscribe();
+    this.roboRoute.EditRobot(this.robot._id, form.value.name, this.selectedJob, this.selectedTeam).subscribe();
 
     //Redirect the user to the read page
     this.router.navigate(['/read']);
