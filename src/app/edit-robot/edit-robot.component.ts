@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RobotDBService} from '../services/robot-db.service';
+import {RobotManagerService} from '../services/robot-manager.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from "@angular/forms";
 
@@ -16,37 +17,20 @@ export class EditRobotComponent implements OnInit {
   selectedTeam: string;     //Get selected Team value
 
   //Array of available jobs
-  jobs: string[] = [
-    "Warrior",
-    "Rogue",
-    "Cleric",
-    "Mage",
-    "Monk",
-    "Paladin",
-    "Bard",
-    "Berserker"
-  ];
+  jobs: string[];
 
   //Array of available teams
-  teams: string[] = [
-    "Aries",
-    "Taurus",
-    "Gemini",
-    "Cancer",
-    "Leo",
-    "Virgo",
-    "Libra",
-    "Scorpio",
-    "Sagittarius",
-    "Capricorn",
-    "Aquarius",
-    "Pisces"
-  ]
+  teams: string[];
 
-  //Add router, activated route and robot db services to the constructor
-  constructor(private router: Router, private route: ActivatedRoute, private roboRoute: RobotDBService) { }
+  //Add router, activated route, robot Manager and robot db services to the constructor
+  constructor(private router: Router, private route: ActivatedRoute, private roboRoute: RobotDBService, 
+    private roboManager: RobotManagerService) { }
 
   ngOnInit() {
+    //Get the available jobs from the robot manager service
+    this.jobs = this.roboManager.jobs;
+    //Get the available teams from the robot manager service
+    this.teams = this.roboManager.teams;
     //Get the robot from the database based its id
     this.roboRoute.GetRobotById(this.route.snapshot.params['id']).subscribe((data) =>
     {
