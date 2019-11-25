@@ -19,8 +19,20 @@ export class RobotDBService {
 
   //Find one robot with an id
   GetRobotById(id:string):Observable<any>{
-    //Return a robot foundd by ID
+    //Return a robot found by ID
     return this.http.get("http://localhost:3000/robots/" + id);
+  }
+
+  //Find robots by job
+  GetRobotsByJob(job:string):Observable<any>{
+    //Return a list of robots by job
+    return this.http.get("http://localhost:3000/robots/search/" + job);
+  }
+
+  //Find robots by team
+  GetRobotsByTeam(team:string):Observable<any>{
+    //Return a list of robots by team
+    return this.http.get("http://localhost:3000/robots/search/" + team);
   }
 
   //Add Robot to the database

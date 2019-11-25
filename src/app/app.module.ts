@@ -20,6 +20,7 @@ import {
   } from '@angular/material';
 import { EditRobotComponent } from './edit-robot/edit-robot.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { SearchRobotComponent } from './search-robot/search-robot.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     CreateRobotComponent,
     ReadRobotComponent,
     EditRobotComponent,
-    HomePageComponent
+    HomePageComponent,
+    SearchRobotComponent
   ],
   imports: [
     BrowserModule,
