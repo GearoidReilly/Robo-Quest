@@ -8,6 +8,7 @@
         </mat-select>
     </mat-form-field>
     <button mat-button (click)="SearchByJob(selectedJob)" color="warn">Search Job</button>
+    <h1>{{robots.length}} Result(s) found!</h1>
 </mat-card>
 <!-- List found robots -->
 <mat-accordion *ngFor="let robot of robots">

@@ -1,4 +1,5 @@
 <mat-card>
+    <img src="../../assets/images/jobImages/{{selectedJob}}.png">
     <form (submit)="AddRobot(robotForm)" #robotForm="ngForm" method="POST">
     <mat-form-field>
         <label> Robot Name</label>
@@ -9,7 +10,7 @@
         ngModel
         required
         #title="ngModel">
-    </mat-form-field>
+    </mat-form-field><br />
     <mat-form-field>
         <label>Robot Job</label>
         <mat-select [(ngModel)] = "selectedJob" name = "job" required>
@@ -17,7 +18,8 @@
             {{job}}
             </mat-option>
         </mat-select>
-    </mat-form-field>
+    </mat-form-field><br />
+    
     <mat-form-field>
         <label>Robot Team</label>
         <mat-select [(ngModel)] = "selectedTeam" name = "team" required>
@@ -25,10 +27,10 @@
             {{team}}
             </mat-option>
         </mat-select>
-    </mat-form-field>
+    </mat-form-field><br />
     <button
     mat-raised-button
     color="accent"
-    type="submit">Save Movie</button>
+    type="submit">Create Robot</button>
     </form>
 </mat-card>

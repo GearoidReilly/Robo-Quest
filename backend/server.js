@@ -75,15 +75,6 @@ app.get('/robots/search/:job', (req,res) =>{
     });
 })
 
-//Used to get robots based on their team
-app.get('/robots/search/:team', (req,res) =>{
-    //Look for robots with the team
-    RobotModel.find({'team': req.params.team}, function (err, data){
-        //Return the data as json
-        res.json(data);
-    });
-})
-
 //Add new robot data to the database
 app.post('/robots', (req, res) =>{
     console.log("Post successful");

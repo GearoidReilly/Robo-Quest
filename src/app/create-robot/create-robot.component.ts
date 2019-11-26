@@ -10,8 +10,8 @@ import {RobotManagerService} from '../services/robot-manager.service';
 })
 export class CreateRobotComponent implements OnInit {
 
-  selectedJob: string;      //Get selected Job value
-  selectedTeam: string;     //Get selected Team value
+  selectedJob: string;       //Get selected Job value
+  selectedTeam: string;               //Get selected Team value
 
   //Array of available jobs
   jobs: string[];
@@ -30,6 +30,12 @@ export class CreateRobotComponent implements OnInit {
 
   //Function to add a robot, accessed from the form
   AddRobot(form: NgForm){
+
+    if(!form.valid)
+    {
+      return;
+    }
+
     //Access the add robot function of the RobotDBService and pass the form values in
     this.roboRoute.AddRobot(form.value.name, this.selectedJob, this.selectedTeam).subscribe();
 

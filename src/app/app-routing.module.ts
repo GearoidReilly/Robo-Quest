@@ -26,10 +26,6 @@ const routes: Routes = [
   {
     path: 'search/:job',
     component: SearchRobotComponent
-  },
-  {
-    path: 'search/:team',
-    component: SearchRobotComponent
   }
 ];
 

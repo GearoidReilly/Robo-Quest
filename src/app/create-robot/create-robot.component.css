@@ -1,4 +1,10 @@
-mat-form-field,
+/*mat-form-field,
 textarea {
 width: 100%;
+}*/
+
+img{
+   width: 200px;
+   height: 200px;
+   float: right;
 }

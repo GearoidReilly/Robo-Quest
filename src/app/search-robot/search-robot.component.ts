@@ -38,17 +38,9 @@ export class SearchRobotComponent implements OnInit {
         //Return data from the web service
         this.robots = data;
         console.log(this.robots);
+        console.log(this.robots.length);
       })
     }
-    /*else if(this.route.snapshot.params.team != null){
-      //Get robots by team
-      //Makes an asynchronous call
-      this.roboRoute.GetRobotsByTeam(this.route.snapshot.params.team).subscribe((data) => {
-        //Return data from the web service
-        this.robots = data;
-        console.log(this.robots);
-      })
-    }*/
   }
 
   //Search for robots by their job
@@ -56,10 +48,16 @@ export class SearchRobotComponent implements OnInit {
     //Check to make sure the string isn't empty
     if(job != null){
       console.log("Selected job is: " + job)
-      //Use the service to get a list of robots with the same job
-      this.roboRoute.GetRobotsByJob(job).subscribe();
       //Redirect to search component
       this.router.navigate(['/search/' + job]);
+      //Use the service to get a list of robots with the same job
+      this.roboRoute.GetRobotsByJob(job).subscribe(
+        //Adds asynchronous functionality
+        () =>{
+        //Add functionality to refresh the page automatically
+        this.ngOnInit();
+      }
+      );
     }else{
       //Tell the user they need to select an option
       console.log("Please select an option");

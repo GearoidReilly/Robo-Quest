@@ -29,12 +29,6 @@ export class RobotDBService {
     return this.http.get("http://localhost:3000/robots/search/" + job);
   }
 
-  //Find robots by team
-  GetRobotsByTeam(team:string):Observable<any>{
-    //Return a list of robots by team
-    return this.http.get("http://localhost:3000/robots/search/" + team);
-  }
-
   //Add Robot to the database
   AddRobot(name:string, job:string, team:string):Observable<any>{
     //Create robot model to import to the database
