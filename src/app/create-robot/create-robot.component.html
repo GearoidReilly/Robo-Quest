@@ -1,5 +1,5 @@
 <mat-card>
-    <img src="../../assets/images/jobImages/{{selectedJob}}.png">
+    
     <form (submit)="AddRobot(robotForm)" #robotForm="ngForm" method="POST">
     <mat-form-field>
         <label> Robot Name</label>
@@ -28,9 +28,34 @@
             </mat-option>
         </mat-select>
     </mat-form-field><br />
+
+    <label>Health:</label>
+    <mat-slider thumbLabel min="1" max="99" [(ngModel)] = "selectHealth" name = "health"></mat-slider>
+    <span>{{selectHealth}}</span><br />
+
+    <label>Magic:</label>
+    <mat-slider thumbLabel min="1" max="99" [(ngModel)] = "selectMagic" name = "magic"></mat-slider>
+    <span>{{selectMagic}}</span><br />
+
+    <label>Attack:</label>
+    <mat-slider thumbLabel min="1" max="20" [(ngModel)] = "selectAttack" name = "attack"></mat-slider>
+    <span>{{selectAttack}}</span><br />
+
+    <label>Defense:</label>
+    <mat-slider thumbLabel min="1" max="20" [(ngModel)] = "selectDefense" name = "defense"></mat-slider>
+    <span>{{selectDefense}}</span><br />
+
+    <label>Speed:</label>
+    <mat-slider thumbLabel min="1" max="20" [(ngModel)] = "selectSpeed" name = "speed"></mat-slider>
+    <span>{{selectSpeed}}</span><br />
+
+    <label>Intelligence:</label>
+    <mat-slider thumbLabel min="1" max="20" [(ngModel)] = "selectIntelligence" name = "intelligence"></mat-slider>
+    <span>{{selectIntelligence}}</span><br />
     <button
     mat-raised-button
     color="accent"
     type="submit">Create Robot</button>
     </form>
+    <img src="../../assets/images/jobImages/{{selectedJob}}.png">
 </mat-card>

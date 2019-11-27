@@ -15,6 +15,12 @@ export class EditRobotComponent implements OnInit {
 
   selectedJob: string;      //Get selected Job value
   selectedTeam: string;     //Get selected Team value
+  selectHealth: number;               //Get selected Health value
+  selectMagic: number;                //Get selected Magic value
+  selectAttack: number;               //Get selected Attack value
+  selectDefense: number;              //Get selected Defense value
+  selectSpeed: number;                //Get selected Speed value
+  selectIntelligence: number;         //Get selected Intelligence value
 
   //Array of available jobs
   jobs: string[];
@@ -37,19 +43,32 @@ export class EditRobotComponent implements OnInit {
       //Get the data from the robot
       this.robot = data;
       
-      //Set the values of the select form inputs based on the job and team values of the robot
+      //Set the values of the select form inputs based on the values of the robot
       this.selectedJob = this.robot.job;
       this.selectedTeam = this.robot.team;
+      this.selectHealth = this.robot.health;
+      this.selectMagic = this.robot.magic;
+      this.selectAttack = this.robot.attack;
+      this.selectDefense = this.robot.defense;
+      this.selectSpeed = this.robot.speed;
+      this.selectIntelligence = this.robot.intelligence;
     })
   }
 
   //Take the form data and use it to update the robot in the database
   EditRobot(form: NgForm){
     //Add each form value to the service
-    this.roboRoute.EditRobot(this.robot._id, form.value.name, this.selectedJob, this.selectedTeam).subscribe();
+    this.roboRoute.EditRobot(this.robot._id, form.value.name, this.selectedJob, this.selectedTeam, this.selectHealth, this.selectMagic,
+      this.selectAttack, this.selectDefense, this.selectSpeed, this.selectIntelligence).subscribe();
 
     //Redirect the user to the read page
-    this.router.navigate(['/read']);
+    this.router.navigate(['/read']).then(
+      //Adds asynchronous functionality
+      () =>{
+        //Add functionality to refresh the page automatically
+        this.ngOnInit();
+      }
+    );
   }
 
 }

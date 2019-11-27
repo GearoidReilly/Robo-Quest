@@ -30,9 +30,11 @@ export class RobotDBService {
   }
 
   //Add Robot to the database
-  AddRobot(name:string, job:string, team:string):Observable<any>{
+  AddRobot(name:string, job:string, team:string, health:number, magic:number, attack:number, defense:number,
+    speed:number, intelligence:number):Observable<any>{
     //Create robot model to import to the database
-    const newRobot:Robot = {name:name, job:job, team:team};
+    const newRobot:Robot = {name:name, job:job, team:team, health:health, magic:magic,
+      attack:attack, defense:defense, speed:speed, intelligence:intelligence};
 
     //Send the robot data to the server
     return this.http.post("http://localhost:3000/robots",newRobot);
@@ -45,9 +47,11 @@ export class RobotDBService {
   }
 
   //Edit the data of a robot on the database
-  EditRobot(id:string, name:string, job:string, team:string):Observable<any>{
+  EditRobot(id:string, name:string, job:string, team:string, health:number, magic:number,
+    attack:number, defense:number, speed:number, intelligence:number):Observable<any>{
     //Create a robot constant using the added values
-    const robot: Robot = { name: name, job: job, team: team };
+    const robot:Robot = {name:name, job:job, team:team, health:health, magic:magic,
+      attack:attack, defense:defense, speed:speed, intelligence:intelligence};
 
     //Update the robot on the database
     return this.http.put("http://localhost:3000/robots/" + id, robot);

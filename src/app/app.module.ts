@@ -8,6 +8,7 @@ import { ReadRobotComponent } from './read-robot/read-robot.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -42,6 +43,7 @@ import { SearchRobotComponent } from './search-robot/search-robot.component';
     MatToolbarModule,
     MatExpansionModule,
     MatSelectModule,
+    MatSliderModule,
     FormsModule
   ],
   providers: [],

@@ -25,7 +25,13 @@ const Schema = mongoose.Schema;
 const robotSchema = new Schema({
     name:String,
     job:String,
-    team:String
+    team:String,
+    health:String,
+    magic:String,
+    attack:Number,
+    defense:Number,
+    speed:Number,
+    intelligence:Number
 })
 
 //Create model for the database
@@ -78,16 +84,18 @@ app.get('/robots/search/:job', (req,res) =>{
 //Add new robot data to the database
 app.post('/robots', (req, res) =>{
     console.log("Post successful");
-    console.log(req.body);
-    console.log(req.body.name);
-    console.log(req.body.job);
-    console.log(req.body.team);
 
     //Create a robot using the information posted
     RobotModel.create({
         name: req.body.name,
         job: req.body.job,
-        team: req.body.team
+        team: req.body.team,
+        health: req.body.health,
+        magic: req.body.magic,
+        attack: req.body.attack,
+        defense: req.body.defense,
+        speed: req.body.speed,
+        intelligence: req.body.intelligence
     });
 
     res.json("Data Uploaded");

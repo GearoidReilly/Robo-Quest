@@ -12,7 +12,7 @@
 </mat-card>
 <!-- List found robots -->
 <mat-accordion *ngFor="let robot of robots">
-    <mat-expansion-panel [expanded]="true" >
+    <mat-expansion-panel [expanded]="false" >
     <mat-expansion-panel-header>
     <mat-panel-title>
     <h3> {{ robot.name }} </h3>
@@ -22,6 +22,16 @@
     <h3>{{ robot.team }}</h3>
     </mat-panel-description>
     </mat-expansion-panel-header>
+    <mat-action-row>
+        <h4>Health: {{robot.health}}</h4>
+        <h4>Magic: {{robot.magic}}</h4>
+    </mat-action-row>
+    <mat-action-row>
+        <h4>Attack: {{robot.attack}}</h4>
+        <h4>Defense: {{robot.defense}}</h4>
+        <h4>Speed: {{robot.speed}}</h4>
+        <h4>Intelligence: {{robot.intelligence}}</h4>
+    </mat-action-row>
     <mat-action-row>
     <button mat-button color="primary" [routerLink]="['/edit', robot._id]" >EDIT</button>
     <button mat-button (click)="DeleteRobot(robot._id)" color="warn">DELETE</button>
