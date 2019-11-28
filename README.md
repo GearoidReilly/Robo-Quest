@@ -1,27 +1,38 @@
 # RoboQuestApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
+This is an app designed to create and store robot rpg character data. Users can create, list, search, edit or delete robots from the database. This app was developed using Angular, Node Js and MongoDB.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Downloading the project
 
-## Code scaffolding
+You can download this project either by cloning the repository or by downloading it as a zip file.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+Before running the application, you will need to install the needed node js components. You will need to open the project folder in the command prompt and then type
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
+npm install node
+```
+to install the necessary components to run the app.
 
-## Running unit tests
+### Running the app
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Server
 
-## Running end-to-end tests
+* Open the project in a code editor, preferably Visual Studio Code.
+* Find the server.js file in the backend folder
+* Open it in terminal and run
+```
+node server.js
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### Angular app
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* Open the folder in the command prompt
+* Run
+```
+ng serve --open
+```
+to run the angular app in the browser. 
