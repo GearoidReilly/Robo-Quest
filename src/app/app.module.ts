@@ -17,6 +17,7 @@ import {
   MatButtonModule,
   MatToolbarModule,
   MatExpansionModule,
+  MatSnackBarModule,
   MatSelectModule
   } from '@angular/material';
 import { EditRobotComponent } from './edit-robot/edit-robot.component';
@@ -42,6 +43,7 @@ import { SearchRobotComponent } from './search-robot/search-robot.component';
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
+    MatSnackBarModule,
     MatSelectModule,
     MatSliderModule,
     FormsModule

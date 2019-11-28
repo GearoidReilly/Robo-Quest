@@ -1,6 +1,6 @@
 <mat-card class="EditCard">
     <img src="../../assets/images/jobImages/{{selectedJob}}.png">
-    <form (submit)="AddRobot(robotForm)" #robotForm="ngForm" method="POST">
+    <form (submit)="EditRobot(robotForm)" #robotForm="ngForm" method="POST">
     <mat-form-field>
         <label> Robot Name</label>
         <input
@@ -55,6 +55,6 @@
     <button
     mat-raised-button
     color="accent"
-    type="submit">Create Robot</button>
+    type="submit">Edit Robot</button>
     </form>
 </mat-card>

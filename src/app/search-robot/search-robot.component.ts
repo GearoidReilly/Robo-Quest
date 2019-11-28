@@ -37,8 +37,6 @@ export class SearchRobotComponent implements OnInit {
       this.roboRoute.GetRobotsByJob(this.route.snapshot.params.job).subscribe((data) => {
         //Return data from the web service
         this.robots = data;
-        console.log(this.robots);
-        console.log(this.robots.length);
       })
     }
   }
@@ -47,7 +45,6 @@ export class SearchRobotComponent implements OnInit {
   SearchByJob(job: string){
     //Check to make sure the string isn't empty
     if(job != null){
-      console.log("Selected job is: " + job)
       //Redirect to search component
       this.router.navigate(['/search/' + job]);
       //Use the service to get a list of robots with the same job
@@ -60,7 +57,7 @@ export class SearchRobotComponent implements OnInit {
       );
     }else{
       //Tell the user they need to select an option
-      console.log("Please select an option");
+      this.DisplayMessage("Enter Job to Search","Ok");
     }
   }
 
@@ -70,10 +67,18 @@ export class SearchRobotComponent implements OnInit {
     this.roboRoute.DeleteRobot(id).subscribe(
       //Adds asynchronous functionality
       () =>{
+        //Display message to user
+        this.DisplayMessage("Robot Deleted","Ok");
         //Add functionality to refresh the page automatically
         this.ngOnInit();
       }
     )
+  }
+
+  //Function to access the snackbar function of the 
+  DisplayMessage(message: string, action: string){
+    //Opens the snackbar from the service
+    return this.roboManager.openSnackBar(message, action);
   }
 
 }

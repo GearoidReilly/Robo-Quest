@@ -62,9 +62,6 @@ app.get('/robots',(req, res, next) =>{
 
 //Used to get a robot by id
 app.get('/robots/:id', (req, res, next) => {
-
-    console.log(req.params.id);
-    
     //Find a robot in the database by their id
     RobotModel.findById(req.params.id, function (err, data) {
         //Return the data as json
@@ -83,8 +80,6 @@ app.get('/robots/search/:job', (req,res) =>{
 
 //Add new robot data to the database
 app.post('/robots', (req, res) =>{
-    console.log("Post successful");
-
     //Create a robot using the information posted
     RobotModel.create({
         name: req.body.name,
@@ -116,12 +111,6 @@ app.delete('/robots/:id', (req,res) =>{
 
 //Used to update a robot in the database
 app.put('/robots/:id', function (req, res) {
-
-    //Display the id of the movie being edited
-    console.log("Update Robot " + req.params.id);
-    //List details
-    console.log(req.body)
-
     //Find the robot in the database and update the information
     RobotModel.findByIdAndUpdate(req.params.id, req.body, {new: true},
     function(err, data){

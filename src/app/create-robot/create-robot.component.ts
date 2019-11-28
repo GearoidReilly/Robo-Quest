@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {RobotDBService} from '../services/robot-db.service';
 import {RobotManagerService} from '../services/robot-manager.service';
-import {MatSliderModule} from '@angular/material'
+
 
 @Component({
   selector: 'app-create-robot',
@@ -40,6 +40,8 @@ export class CreateRobotComponent implements OnInit {
 
     if(!form.valid)
     {
+      //Display a message telling the user that they need to enter the form properly
+      this.DisplayMessage("Please complete the form.", "Ok");
       return;
     }
 
@@ -47,8 +49,16 @@ export class CreateRobotComponent implements OnInit {
     this.roboRoute.AddRobot(form.value.name, this.selectedJob, this.selectedTeam, this.selectHealth, this.selectMagic,
       this.selectAttack, this.selectDefense, this.selectSpeed, this.selectIntelligence).subscribe();
 
+    //Display a message telling the user that a new robot was created
+    this.DisplayMessage("Created robot: " + form.value.name, "Ok");
+
     //Reset the form
     form.resetForm();
   }
-
+  
+  //Function to access the snackbar function of the 
+  DisplayMessage(message: string, action: string){
+    //Opens the snackbar from the service
+    return this.roboManager.openSnackBar(message, action);
+  }
 }

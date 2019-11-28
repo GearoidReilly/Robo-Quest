@@ -57,6 +57,14 @@ export class EditRobotComponent implements OnInit {
 
   //Take the form data and use it to update the robot in the database
   EditRobot(form: NgForm){
+    //Check to see if the form was filled out properly
+    if(!form.valid)
+    {
+      //Display a message telling the user that they need to enter the form properly
+      this.DisplayMessage("Please complete the form.", "Ok");
+      return;
+    }
+
     //Add each form value to the service
     this.roboRoute.EditRobot(this.robot._id, form.value.name, this.selectedJob, this.selectedTeam, this.selectHealth, this.selectMagic,
       this.selectAttack, this.selectDefense, this.selectSpeed, this.selectIntelligence).subscribe();
@@ -65,10 +73,19 @@ export class EditRobotComponent implements OnInit {
     this.router.navigate(['/read']).then(
       //Adds asynchronous functionality
       () =>{
+        //Display a sucess message
+        this.DisplayMessage("Robot edited", "Ok");
+        
         //Add functionality to refresh the page automatically
         this.ngOnInit();
       }
     );
+  }
+
+  //Function to access the snackbar function of the 
+  DisplayMessage(message: string, action: string){
+    //Opens the snackbar from the service
+    return this.roboManager.openSnackBar(message, action);
   }
 
 }
