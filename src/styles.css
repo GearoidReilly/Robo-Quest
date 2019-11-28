@@ -1,4 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { min-height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-image: linear-gradient(deeppink, darkviolet);
+    background-size: cover;
+    background-repeat: no-repeat;}
+
+/* Custom image style based on job choice */
+.jobImage{
+    width: 200px;
+    height: 200px;
+}
+
+/* Custom colors for robot card */
+.mat-card.RobotCard{
+    background-image: linear-gradient(to bottom right, darkred, orange);
+    margin: 25px 50px;
+}
+.mat-expansion-panel.RobotCard{
+    background-color: darkred;
+}
+
+.mat-card.CreateCard{    
+    background-image: linear-gradient(to bottom right, darkblue, cyan);
+    margin: 25px 50px;
+}
+
+.mat-card.EditCard{    
+    background-image: linear-gradient(to bottom right, darkgreen, lime);
+    margin: 25px 50px;
+}
+
+.mat-card.SearchBar{
+    background-color: deeppink;
+}
+
+/* Custom styling for tables */
+th{
+    text-align: right;
+}

@@ -1,5 +1,5 @@
 <!-- Search select -->
-<mat-card>
+<mat-card class="SearchBar">
     <mat-form-field>
         <mat-select [(ngModel)] = "selectedJob" name = "job" required>
             <mat-option *ngFor = "let job of jobs" [value] = "job">
@@ -7,34 +7,75 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <button mat-button (click)="SearchByJob(selectedJob)" color="warn">Search Job</button>
+    <button mat-button (click)="SearchByJob(selectedJob)" color="dark">Search Job</button>
     <h1>{{robots.length}} Result(s) found!</h1>
 </mat-card>
 <!-- List found robots -->
-<mat-accordion *ngFor="let robot of robots">
-    <mat-expansion-panel [expanded]="false" >
-    <mat-expansion-panel-header>
-    <mat-panel-title>
-    <h3> {{ robot.name }} </h3>
-    </mat-panel-title>
-    <mat-panel-description>
-    <h3>{{ robot.job }}</h3>
-    <h3>{{ robot.team }}</h3>
-    </mat-panel-description>
-    </mat-expansion-panel-header>
-    <mat-action-row>
-        <h4>Health: {{robot.health}}</h4>
-        <h4>Magic: {{robot.magic}}</h4>
-    </mat-action-row>
-    <mat-action-row>
-        <h4>Attack: {{robot.attack}}</h4>
-        <h4>Defense: {{robot.defense}}</h4>
-        <h4>Speed: {{robot.speed}}</h4>
-        <h4>Intelligence: {{robot.intelligence}}</h4>
-    </mat-action-row>
-    <mat-action-row>
-    <button mat-button color="primary" [routerLink]="['/edit', robot._id]" >EDIT</button>
-    <button mat-button (click)="DeleteRobot(robot._id)" color="warn">DELETE</button>
-    </mat-action-row>
-    </mat-expansion-panel>
-</mat-accordion>
+<mat-card class="RobotCard" *ngFor="let robot of robots">
+    <img class="jobImage" src="../../assets/images/jobImages/{{robot.job}}.png">
+    <img src="../../assets/images/teamImages/{{robot.team}}.png">
+    <h2>{{robot.name}}</h2>
+    <mat-accordion>
+        <mat-expansion-panel class="RobotCard" [expanded] = "false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                <b>Details</b>
+                </mat-panel-title>
+                <mat-panel-description>
+                View Robot Details
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <table mat-table>
+                <tr mat-row>
+                    <th>Job:</th>
+                    <td>{{robot.job}}</td>
+                </tr>
+                <tr mat-row>
+                    <th>Team:</th>
+                    <td>{{robot.team}}</td>
+                </tr>
+            </table>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="RobotCard" [expanded] = "false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <b>Stats</b>
+            </mat-panel-title>
+            <mat-panel-description>
+              View Robot stats
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <table mat-table>
+                <tr mat-row>
+                    <th>Health:</th>
+                    <td>{{robot.health}}</td>
+                </tr>
+                <tr mat-row>
+                    <th>Magic:</th>
+                    <td>{{robot.magic}}</td>
+                </tr>
+                <tr mat-row>
+                    <th>Attack:</th>
+                    <td>{{robot.attack}}</td>
+                </tr>
+                <tr mat-row>
+                    <th>Defense:</th>
+                    <td>{{robot.defense}}</td>
+                </tr>
+                <tr mat-row>
+                    <th>Speed:</th>
+                    <td>{{robot.speed}}</td>
+                </tr>
+                <tr mat-row>
+                    <th>Intelligence:</th>
+                    <td>{{robot.intelligence}}</td>
+                </tr>
+          </table>
+        </mat-expansion-panel>
+        <mat-action-row>
+            <button mat-button color="dark" [routerLink]="['/edit', robot._id]" >EDIT</button>
+            <button mat-button (click)="DeleteRobot(robot._id)" color="dark">DELETE</button>
+        </mat-action-row>
+      </mat-accordion>
+      
+</mat-card>

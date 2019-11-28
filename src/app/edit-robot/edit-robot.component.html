@@ -1,15 +1,16 @@
-<mat-card>
-    <form (submit)="EditRobot(robotForm)" #robotForm="ngForm" method="POST">
+<mat-card class="EditCard">
+    <img src="../../assets/images/jobImages/{{selectedJob}}.png">
+    <form (submit)="AddRobot(robotForm)" #robotForm="ngForm" method="POST">
     <mat-form-field>
         <label> Robot Name</label>
         <input
         matInput
         type="text"
         name="name"
-        ngModel = {{robot.name}}
+        ngModel
         required
         #title="ngModel">
-    </mat-form-field>
+    </mat-form-field><br />
     <mat-form-field>
         <label>Robot Job</label>
         <mat-select [(ngModel)] = "selectedJob" name = "job" required>
@@ -17,7 +18,8 @@
             {{job}}
             </mat-option>
         </mat-select>
-    </mat-form-field>
+    </mat-form-field><br />
+    
     <mat-form-field>
         <label>Robot Team</label>
         <mat-select [(ngModel)] = "selectedTeam" name = "team" required>
@@ -25,7 +27,7 @@
             {{team}}
             </mat-option>
         </mat-select>
-    </mat-form-field>
+    </mat-form-field><br />
 
     <label>Health:</label>
     <mat-slider thumbLabel min="1" max="99" [(ngModel)] = "selectHealth" name = "health"></mat-slider>
@@ -53,7 +55,6 @@
     <button
     mat-raised-button
     color="accent"
-    type="submit">Update Robot</button>
+    type="submit">Create Robot</button>
     </form>
-    <img src="../../assets/images/jobImages/{{selectedJob}}.png">
 </mat-card>
