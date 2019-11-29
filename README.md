@@ -10,10 +10,12 @@ You can download this project either by cloning the repository or by downloading
 
 ### Prerequisites
 
-Before running the application, you will need to install the needed node js components. You will need to open the project folder in the command prompt and then type
+Before running the application, you will need to install the needed node js components. You will need to open the project folder in the command prompt and then type the following commands
 
 ```
 npm install node
+npm install --save @angular/material @angular/cdk @angular/animations
+npm install --save hammerjs 
 ```
 to install the necessary components to run the app.
 
