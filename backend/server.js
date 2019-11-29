@@ -49,6 +49,12 @@ app.use(function(req, res, next) {
     next();
 });
 
+//Connects the server to the angular app
+app.use("/", express.static(path.join(__dirname, "angular")));
+
+//Send the file to the index
+app.get('/',function(req, res){res.sendFile(path.join(__dirname, "angular", "index.html"));});
+
 //Get the list of robots from the mongo database
 app.get('/robots',(req, res, next) =>{
     //Store the robots in a variable for easy access

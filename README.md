@@ -22,22 +22,11 @@ to install the necessary components to run the app.
 
 This app uses MongoDB so an internet connection is required to use the features of the app.
 
-#### Server
-
-* Open the project in a code editor, preferably Visual Studio Code.
-* Find the server.js file in the backend folder
-* Open it in terminal and run
+Navigate to the Backend folder within the app, run
 ```
 node server.js
 ```
-
-#### Angular app
-
-* Open the folder in the command prompt
-* Run the following command to run the angular app in the browser.
-```
-ng serve --open
-```
+Then search localhost:3000, the app should be running.
 
 ### App Features
 
