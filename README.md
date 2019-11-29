@@ -10,12 +10,11 @@ You can download this project either by cloning the repository or by downloading
 
 ### Prerequisites
 
-Before running the application, you will need to install the needed node js components. You will need to open the project folder in the command prompt and then type the following commands
-
+Before running the application, you will need to install the needed node js components. Open the robo-quest folder in the command line or open the server.js file in the backend folder and run the following commands.
 ```
-npm install node
-npm install --save @angular/material @angular/cdk @angular/animations
-npm install --save hammerjs 
+npm install express
+npm install mongoose
+npm install cors
 ```
 to install the necessary components to run the app.
 
